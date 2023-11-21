@@ -15,3 +15,18 @@
  */
 
 @import "bulma";
+
+.nav_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav_items {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav_header h1 {
+  margin-top: 24px;
+}
