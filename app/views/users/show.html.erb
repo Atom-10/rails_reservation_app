@@ -1,0 +1,23 @@
+<secction>
+  <div class="account">
+    <h1>マイページ</h1>
+  </div>
+</secction>
+
+<secction>
+  <div class="user_content">
+    <div>
+      <%= attachment_image_tag @user, :profile_image, fallback: "no-image.png" %>
+    </div>
+    <div class="user_details">
+      <p><%= @user.username %></p>
+      <% if @user.id == current_user.id %>
+        <p><%= @user.email %></p>
+        <p><%= link_to "編集", edit_user_path(@user), class: "button is-primary"%></p>
+      <% end %>
+    </div>
+    <div>
+      <p><%= @user.profile %></p>
+    </div>
+  </div>
+</secction>

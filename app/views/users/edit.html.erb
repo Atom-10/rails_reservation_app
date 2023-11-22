@@ -1,0 +1,17 @@
+<h1>Users#edit</h1>
+<p>Find me in app/views/users/edit.html.erb</p>
+
+<%= form_for @user do |f| %>
+  <%= f.label :ユーザーネーム %>
+  <%= f.text_field :username %>
+
+  <%= f.label :メールアドレス %>
+  <%= f.text_field :email %>
+
+  <%= f.label :プロフィール %>
+  <%= f.text_area :profile %>
+  
+  <%= f.label :プロフィール画像 %>
+
+  <%= f.submit "変更する" %>
+<% end %>

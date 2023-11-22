@@ -1,0 +1,22 @@
+<secction>
+  <div class="account">
+    <h1>登録ユーザー一覧</h1>
+  </div>
+</secction>
+
+<secction>
+  <% @users.each do |user| %>
+    <div class="account_content">
+      <div class="account_image">
+        <%= attachment_image_tag user, :profile_image, fallback: "no-image.png"%>
+      </div>
+      <div>ユーザーネーム</div>
+      <div class="account_name">
+        <p><%= user.username %></p>
+      </div>
+      <div>
+        <%= link_to "プロフィール", user_path(user)%>
+      </div>
+    </div>
+  <% end %>
+</secction>
