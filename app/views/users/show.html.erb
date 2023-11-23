@@ -1,23 +1,29 @@
 <secction>
   <div class="account">
-    <h1>マイページ</h1>
+    <h1>プロフィール</h1>
   </div>
 </secction>
 
 <secction>
-  <div class="user_content">
-    <div>
-      <%= attachment_image_tag @user, :profile_image, fallback: "no-image.png" %>
+  <div class="user_container">
+    <div class="user_content">
+      <div class="user_image">
+        <%= attachment_image_tag @user, :profile_image, fallback: "no-image.png", class: "image" %>
+      </div>
+      <div class="user_info">
+        <div class="user_details">
+          <p class="user_name"><%= @user.username %></p>
+          <% if @user.id == current_user.id %>
+            <p class="user_email"><%= @user.email %></p>
+          <% end %>
+          <% if @user.id == current_user.id %>
+            <p><%= link_to "編集", edit_user_path(@user), class: "button is-primary"%></p>
+          <% end %>
+        </div>
+      </div>
     </div>
-    <div class="user_details">
-      <p><%= @user.username %></p>
-      <% if @user.id == current_user.id %>
-        <p><%= @user.email %></p>
-        <p><%= link_to "編集", edit_user_path(@user), class: "button is-primary"%></p>
-      <% end %>
-    </div>
-    <div>
-      <p><%= @user.profile %></p>
+    <div class="user_introduction">
+      <p>自己紹介:<br><%= @user.profile %></p>
     </div>
   </div>
 </secction>

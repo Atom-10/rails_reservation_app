@@ -33,6 +33,9 @@
         </div>
       <% else %>
         <div>
+          <%= link_to "登録ユーザー一覧", users_path, class: "button is-light" %>
+        </div>
+        <div>
           <%= link_to "ログイン", new_user_session_path, class: "button is-light" %>
         </div>
         <div>

@@ -1,17 +1,35 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<secction>
+  <div class="account">
+    <h1>編集</h1>
+  </div>
+</secction>
 
-<%= form_for @user do |f| %>
-  <%= f.label :ユーザーネーム %>
-  <%= f.text_field :username %>
+<secction>
+  <div class="user_container">
+    <div class="columns is-centered">
+      <%= form_for @user do |f| %>
+        <div class="field">
+          <%= f.label :ユーザーネーム, class: "label" %>
+          <%= f.text_field :username, class: "input" %>
+        </div>
 
-  <%= f.label :メールアドレス %>
-  <%= f.text_field :email %>
+        <div class="field">
+          <%= f.label :メールアドレス, class: "label" %>
+          <%= f.text_field :email, class: "input" %>
+        </div>
 
-  <%= f.label :プロフィール %>
-  <%= f.text_area :profile %>
-  
-  <%= f.label :プロフィール画像 %>
+        <div class="field">
+          <%= f.label :自己紹介, class: "label" %>
+          <%= f.text_field :profile, class: "textarea" %>
+        </div>
 
-  <%= f.submit "変更する" %>
-<% end %>
+        <div class="field">
+          <%= f.label :プロフィール画像, class: "label" %>
+          <%= f.file_field :profile_image, class: "input" %>
+        </div>
+
+        <%= f.submit "変更する", class: "button is-success" %>
+      <% end %>
+    </div>
+  </div>
+</secction>
