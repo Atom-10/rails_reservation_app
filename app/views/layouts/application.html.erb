@@ -27,21 +27,24 @@
       <h1 class="title is-4">宿泊予約アプリ</h1>
 
       <div class="nav_items">
-      <% if user_signed_in? %>
-        <div>
-          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "button is-light" %>
-        </div>
-      <% else %>
-        <div>
-          <%= link_to "登録ユーザー一覧", users_path, class: "button is-light" %>
-        </div>
-        <div>
-          <%= link_to "ログイン", new_user_session_path, class: "button is-light" %>
-        </div>
-        <div>
-          <%= link_to "新規登録", new_user_registration_path, class: "button is-light" %>
-        </div>
-      <% end %>
+        <% if user_signed_in? %>
+          <div>
+            <%= link_to "登録ユーザー一覧", users_path, class: "button is-light" %>
+          </div>
+          <div>
+            <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "button is-light" %>
+          </div>
+        <% else %>
+          <div>
+            <%= link_to "登録ユーザー一覧", users_path, class: "button is-light" %>
+          </div>
+          <div>
+            <%= link_to "ログイン", new_user_session_path, class: "button is-light" %>
+          </div>
+          <div>
+            <%= link_to "新規登録", new_user_registration_path, class: "button is-light" %>
+          </div>
+        <% end %>
       </div>
     </nav>
     <%= yield %>
