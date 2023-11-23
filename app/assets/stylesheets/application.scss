@@ -55,7 +55,9 @@
 
 .account_image {
   margin-right: 30px;
-  margin-top: 5px;
+  width: 140px;
+  display: flex;
+  justify-content: center;
 }
 
 .account_name {
