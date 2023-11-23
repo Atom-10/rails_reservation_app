@@ -1,0 +1,38 @@
+<secction>
+  <div class="account">
+    <h1>施設登録ページ</h1>
+  </div>
+</secction>
+
+<div class="room_container">
+  <div class="columns is-centered">
+    <%= form_for @room do |f|%>
+      <div class="field">
+        <%= f.label :施設名, class: "label" %>
+        <%= f.text_field :room_name, class: "input" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :施設紹介, class: "label"%>
+        <%= f.text_area :room_details, class: "input" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :施設画像, class: "label" %>
+        <%= f.file_field :image, class: "input" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :宿泊料金, class: "label" %>
+        <%= f.text_field :price, class: "input" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :住所, class: "label" %>
+        <%= f.text_field :place, class: "input" %>
+      </div>
+
+      <%= f.submit "施設を登録する", class: "button is-success" %>
+    <% end %>
+  </div>
+</div>
