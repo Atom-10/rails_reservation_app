@@ -20,15 +20,19 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: navy;
 }
 
 .nav_items {
   display: flex;
   justify-content: space-between;
+  gap: 10px;
+  margin: 0 50px 0 0;
 }
 
 .nav_header h1 {
-  margin-top: 24px;
+  margin: 24px 0 0 50px;
+  color: white;
 }
 
 .account {
@@ -118,7 +122,7 @@ textarea {
 }
 .room_content {
   margin: 0 auto;
-  width: 80%;
+  width: 100%;
   display: flex;
 }
 
@@ -131,8 +135,51 @@ textarea {
   height: 180px;
 }
 
-.room_editor {
+.rooms_container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  margin: 0 auto;
+  padding: 0 50px;
+}
+
+.rooms_content {
+  width: 400px;
+  height: 500px;
+  padding: 15px;
+  background-color: #f0f0f0;
+}
+
+.image {
+  margin: 0 auto;
+  height: 200px;
+  width: auto;
+}
+
+.rooms_details {
+  margin-top: 20px;
+}
+
+.rooms_option {
+  margin-top: 10px;
+}
+
+.room_container {
+  display: grid;
+  justify-content: center;
+}
+
+.room_price_place {
+  font-size: 22px;
+}
+
+.room_buttons {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.details {
+  margin: 30px 0;
+  max-height: 300px;
 }

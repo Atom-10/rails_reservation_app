@@ -7,31 +7,52 @@
 <div class="room_container">
   <div class="room_content">
     <div class="room_image">
-      <%= attachment_image_tag @room, :image %>
+      <%= attachment_image_tag @room, :image, fallback: "no-image.png", class: "image" %>
     </div>
     <div class="room_wrapper">
-      <div class="room_name">
-        <%= @room.room_name %>
-      </div>
-      <div class="room_details">
-        <p style="white-space:pre-wrap;"><%= @room.room_details %></p>
-      </div>
-      <div>
-        <span>宿泊料金（ 1人 / 1泊 ）<%= @room.price %>円</span>
-      </div>
-      <div>
-        <span>住所：<%= @room.place %></span>
-      </div>
-      <div class="room_editor">
-        <div>
-          <span>投稿者<%= @room.user.username %></span>
+      <% if current_user == nil %>
+        <div class="room_name">
+          <%= @room.room_name %>
         </div>
         <div>
-          <% if @room.user.id == current_user.id %>
-            <%= link_to "編集", edit_room_path(@room), class: "button is-success" %>
-          <% end %>
+          <span>宿泊料金（ 1人 / 1泊 ）<%= @room.price %>円</span>
         </div>
-      </div>
+        <div>
+          <span>住所：<%= @room.place %></span>
+        </div>
+        <div>
+          <span>登録者：<%= @room.user.username %>さん</span>
+        </div>
+        <div class="room_buttons">
+          <p class="rooms_option"><%= link_to "施設一覧", rooms_path, class: "button is-success" %></p>
+        </div>
+      <% else %>
+        <div class="room_name">
+          <%= @room.room_name %>
+        </div>
+        <div>
+          <span>宿泊料金（ 1人 / 1泊 ）<%= @room.price %>円</span>
+        </div>
+        <div>
+          <span>住所：<%= @room.place %></span>
+        </div>
+        <div>
+          <span>登録者：<%= @room.user.username %>さん</span>
+        </div>
+        <div class="room_buttons">
+          <div class="rooms_option">
+            <%= link_to "施設一覧", rooms_path, class: "button is-success" %>
+            <% if @room.user.id == current_user.id %>
+              <%= link_to "編集", edit_room_path(@room), class: "button is-success" %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
     </div>
   </div>
+  <div class="details">
+    <p><strong>施設のご紹介</strong></p>
+    <p style="white-space:pre-wrap;"><%= @room.room_details %></p>
+  </div>
 </div>
+

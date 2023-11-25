@@ -1,2 +1,29 @@
-<h1>Rooms#index</h1>
-<p>Find me in app/views/rooms/index.html.erb</p>
+<secction>
+  <div class="account">
+    <h1>施設一覧</h1>
+  </div>
+</secction>
+
+<div class="rooms_container">
+  <% @rooms.each do |room|  %>
+    <div class="rooms_content">
+      <div>
+        <p><%= attachment_image_tag room, :image, fallback: "no-image.png", class: "image" %></p>
+      </div>
+      <div>
+        <p class="room_name"><%= room.room_name %></p>
+      </div>
+      <div class="rooms_option">
+        <%= link_to "詳細情報", room, class: "button is-success" %>
+      </div>
+      <div class="rooms_details room_price_place">
+        <p><span>宿泊料金（ 1人 / 1泊 ）<%= room.price %>円</span></p>
+        <p><span>住所：<%= room.place %></span></p>
+      </div>
+      <div class="rooms_details">
+        <p><span>登録者：<%= room.user.username %>さん</span></p>
+        <p><span>更新日<%= room.updated_at.strftime("%Y/%m/%d %H:%M") %></span></p>
+      </div>
+    </div>
+  <% end %>
+</div>

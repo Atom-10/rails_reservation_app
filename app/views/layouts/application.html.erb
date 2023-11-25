@@ -24,25 +24,31 @@
     <% end %>
 
     <nav class="nav_header">
-      <h1 class="title is-4">宿泊予約アプリ</h1>
+      <h1 class="title">宿泊予約アプリ</h1>
 
       <div class="nav_items">
         <% if user_signed_in? %>
           <div>
-            <%= link_to "登録ユーザー一覧", users_path, class: "button is-light" %>
+            <%= link_to "施設一覧", rooms_path, class: "button is-success" %>
           </div>
           <div>
-            <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "button is-light" %>
+            <%= link_to "登録ユーザー一覧", users_path, class: "button is-success" %>
+          </div>
+          <div>
+            <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "button is-success" %>
           </div>
         <% else %>
           <div>
-            <%= link_to "登録ユーザー一覧", users_path, class: "button is-light" %>
+            <%= link_to "施設一覧", rooms_path, class: "button is-success" %>
           </div>
           <div>
-            <%= link_to "ログイン", new_user_session_path, class: "button is-light" %>
+            <%= link_to "登録ユーザー一覧", users_path, class: "button is-success" %>
           </div>
           <div>
-            <%= link_to "新規登録", new_user_registration_path, class: "button is-light" %>
+            <%= link_to "ログイン", new_user_session_path, class: "button is-success" %>
+          </div>
+          <div>
+            <%= link_to "新規登録", new_user_registration_path, class: "button is-success" %>
           </div>
         <% end %>
       </div>
