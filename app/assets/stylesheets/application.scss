@@ -26,6 +26,7 @@
 .nav_items {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   gap: 10px;
   margin: 0 50px 0 0;
 }
@@ -182,4 +183,16 @@ textarea {
 .details {
   margin: 30px 0;
   max-height: 300px;
+}
+
+.login_user {
+  width: 100px;
+  min-height: 100px;
+  margin: 10px;
+  color: white;
+  text-align: center;
+}
+
+.login_user a {
+  color: inherit;
 }

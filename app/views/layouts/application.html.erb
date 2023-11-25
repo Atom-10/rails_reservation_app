@@ -37,6 +37,14 @@
           <div>
             <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "button is-success" %>
           </div>
+          
+          <div class="login_user">
+          <%= link_to current_user do %>
+            <p><%= attachment_image_tag current_user, :profile_image, fallback: "no-image.png" %></p>
+            <p><%= current_user.username %></p>
+          <% end %>
+          </div>
+          
         <% else %>
           <div>
             <%= link_to "施設一覧", rooms_path, class: "button is-success" %>
