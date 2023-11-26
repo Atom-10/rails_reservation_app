@@ -53,8 +53,8 @@
             </div>
           </button>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">プロフィール</a></li>
-              <li><a class="dropdown-item" href="#">アカウント</a></li>
+              <li><%= link_to "プロフィール", current_user, class: "dropdown-item" %></li>
+              <li><%= link_to "アカウント", account_path, class: "dropdown-item" %></li>
               <li><a class="dropdown-item" href="#">予約一覧</a></li>
             </ul>
           </div>
