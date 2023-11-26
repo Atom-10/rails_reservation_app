@@ -1,0 +1,22 @@
+<secction>
+  <div class="account">
+    <h1>アカウント</h1>
+  </div>
+</secction>
+
+<secction>
+  <div class="user_container">
+    <div class="account_show">
+      <div class="account_details">
+        <p>メールアドレス</p>
+        <span><%= current_user.email %></span>
+        <p>パスワード</p>
+        <span>*********</span>
+        <div class="account_buttons">
+          <p><%= link_to "プロフィール", current_user, class: "button is-primary"%></p>
+          <p><%= link_to "編集", edit_user_registration_path, class: "button is-primary"%></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</secction>

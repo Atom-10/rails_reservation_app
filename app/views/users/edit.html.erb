@@ -27,8 +27,11 @@
           <%= f.label :プロフィール画像, class: "label" %>
           <%= f.file_field :profile_image, class: "input" %>
         </div>
-
-        <%= f.submit "変更する", class: "button is-success" %>
+        
+        <div class="editor_buttons">
+          <p><%= f.submit "変更する", class: "button is-success" %></p>
+          <p><%= link_to "戻る", current_user, class: "button is-primary"%></p>
+        </div>
       <% end %>
     </div>
   </div>

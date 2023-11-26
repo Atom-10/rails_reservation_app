@@ -16,10 +16,13 @@
           <p class="user_name"><%= @user.username %>
         <% else %>
           <p class="user_name"><%= @user.username %></p>
-          <% if @user.id == current_user.id %>
-            <p class="user_email"><%= @user.email %></p>
-            <p><%= link_to "編集", edit_user_path(@user), class: "button is-primary"%></p>
-          <% end %>
+          <div class="profile_buttons">
+            <% if @user.id == current_user.id %>
+              <p><%= link_to "編集", edit_user_path(@user), class: "button is-primary"%></p>
+              <p><%= link_to "アカウント", account_path, class: "button is-primary"%></p>
+              <p><%= link_to "戻る", users_path, class: "button is-primary"%></p>
+            <% end %>
+          </div>
         <% end %>
         </div>
       </div>

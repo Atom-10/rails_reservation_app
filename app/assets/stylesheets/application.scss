@@ -196,3 +196,61 @@ textarea {
 .login_user a {
   color: inherit;
 }
+
+.account_delete {
+  text-align: center;
+  padding: 30px 0;
+  margin-top: 30px;
+  background-color: #f0f0f0;
+}
+
+.delete_message {
+  font-size: 20px;
+}
+
+.account_delete span {
+  color: red;
+}
+
+.account_delete_button {
+  margin-top: 30px;
+}
+
+.update_buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.account_show {
+  display: flex;
+  justify-content: center;
+}
+
+.account_details {
+  font-size: 24px;
+  margin: 10px 0;
+  text-align: center;
+}
+
+.account_details p {
+  margin: 10px 0;
+}
+
+.account_details span {
+  font-size: 35px;
+}
+
+.account_buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.profile_buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.editor_buttons {
+  display: flex;
+  justify-content: space-between;
+}
