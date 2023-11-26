@@ -16,6 +16,10 @@
 
 @import "bulma";
 
+a:hover {
+  text-decoration: none;
+}
+
 .nav_header {
   display: flex;
   justify-content: space-between;
@@ -253,4 +257,8 @@ textarea {
 .editor_buttons {
   display: flex;
   justify-content: space-between;
+}
+
+.dropdown-menu {
+  min-width: 140px;
 }
