@@ -26,51 +26,33 @@
     <% end %>
 
     <nav class="nav_header">
-      <h1 class="title">宿泊予約アプリ</h1>
-      <div class="nav_items">
+      <div class="nav_content">
+        <h1><%= link_to "宿泊予約アプリ", root_path, class: "app_name" %></h1>
         <% if user_signed_in? %>
-        <% end %>
-      </div>
-
-      <div class="nav_items">
-        <% if user_signed_in? %>
-          <div>
-            <%= link_to "施設一覧", rooms_path, class: "button is-success" %>
-          </div>
-          <div>
-            <%= link_to "登録ユーザー一覧", users_path, class: "button is-success" %>
-          </div>
-          <div>
-            <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "button is-success" %>
-          </div>
           <div class="dropdown">
-          <button class="btn" data-bs-toggle="dropdown">
-            <div class="login_user">
-              <%= link_to current_user do %>
-                <p><%= attachment_image_tag current_user, :profile_image, fallback: "no-image.png" %></p>
-                <p><%= current_user.username %></p>
+            <div class="btn dropdown-toggle login_user" data-bs-toggle="dropdown">
+              <%= attachment_image_tag current_user, :profile_image, class: "login_icon", fallback: "no-image.png" %>
+              <%= link_to current_user, class: "login_user" do %>
+                <%= current_user.username %>
               <% end %>
             </div>
-          </button>
             <ul class="dropdown-menu">
               <li><%= link_to "プロフィール", current_user, class: "dropdown-item" %></li>
               <li><%= link_to "アカウント", account_path, class: "dropdown-item" %></li>
-              <li><a class="dropdown-item" href="#">予約一覧</a></li>
+              <li><%= link_to "施設を登録する", new_room_path, class: "dropdown-item" %></li>
+              <li><%= link_to "予約一覧", account_path, class: "dropdown-item" %></li>
+              <li><%= link_to "ログアウト", destroy_user_session_path, class: "dropdown-item", method: :delete, data: {confirm: "ログアウトしてもよろしいですか？"} %></li>
+              
             </ul>
           </div>
-
         <% else %>
-          <div>
-            <%= link_to "施設一覧", rooms_path, class: "button is-success" %>
-          </div>
-          <div>
-            <%= link_to "登録ユーザー一覧", users_path, class: "button is-success" %>
-          </div>
-          <div>
-            <%= link_to "ログイン", new_user_session_path, class: "button is-success" %>
-          </div>
-          <div>
-            <%= link_to "新規登録", new_user_registration_path, class: "button is-success" %>
+          <div class="nav_buttons">
+            <div>
+              <%= link_to "ログイン", new_user_session_path, class: "button is-success" %>
+            </div>
+            <div>
+              <%= link_to "新規登録", new_user_registration_path, class: "button is-success" %>
+            </div>
           </div>
         <% end %>
       </div>

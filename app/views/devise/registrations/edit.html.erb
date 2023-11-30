@@ -1,58 +1,51 @@
-<section class="hero is-info">
-  <div class="hero-body">
+<section>
+  <div class="section">
     <div class="container">
-      <h1 class="title columns is-centered">
-      アカウント編集画面
-      </h1>
-    </div>
-  </div>
-</section>
+      <div class="columns is-centered">
+        <div class="column is-6">
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+            <%= render "devise/shared/error_messages", resource: resource %>
+            <div class="wrapper">
+              <div class="title section columns is-centered">
+                <h2>アカウント編集</h2>
+              </div>
 
-<section class="section">
-  <div class="container">
-    <div class="columns is-centered">
-      <div class="column is-5">
-        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-          <%= render "devise/shared/error_messages", resource: resource %>
+              <div class="field">
+                <%= f.label :メールアドレス %><br />
+                <%= f.email_field :email, autocomplete: "email", class: "input" %>
+              </div>
 
-          <div class="field">
-            <%= f.label :メールアドレス %><br />
-            <%= f.email_field :email, autocomplete: "email", class: "input" %>
-          </div>
+              <div class="field">
+                <%= f.label :パスワード %><br />
+                <%= f.password_field :password, autocomplete: "new-password", :placeholder => "6文字以上で入力してください", class: "input" %>
+              </div>
 
-          <div class="field">
-            <%= f.label :パスワード %><br />
-            <%= f.password_field :password, autocomplete: "new-password", :placeholder => "6文字以上で入力してください", class: "input" %>
-          </div>
+              <div class="field">
+                <%= f.label :パスワード確認 %><br />
+                <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "input" %>
+              </div>
 
-          <div class="field">
-            <%= f.label :パスワード確認 %><br />
-            <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "input" %>
-          </div>
+              <div class="field">
+                <%= f.label :現在のパスワードを入力してください %><br />
+                <%= f.password_field :current_password, autocomplete: "current-password", class: "input" %>
+              </div>
+            
+              <div class="actions">
+                <%= f.submit "保存", class: "button is-success" %>
+              </div>
 
-          <div class="field">
-            <%= f.label :現在のパスワードを入力してください %><br />
-            <%= f.password_field :current_password, autocomplete: "current-password", class: "input" %>
-          </div>
-          
-          <div class="update_buttons">
-            <div class="actions">
-              <%= f.submit "変更する", class: "button is-primary" %>
+              <div class="actions">
+                <%= link_to "キャンセル", account_path, class: "button" %>
+              </div>
+
+              <div class="delete_message">
+                <span>アカウントを削除する</span>
+              </div>
+              <div>
+                <%= button_to "削除", registration_path(resource_name), data: { confirm: "この操作は取り消せません！本当によろしいですか?", turbo_confirm: "この操作は取り消せません！本当によろしいですか?" }, method: :delete, class: "button is-danger" %>
+              </div>
             </div>
-            <div>
-              <%= link_to "戻る", account_path, class: "button is-primary" %>
-            </div>
-          </div>
-        <% end %>
-        
-        <div class="account_delete">
-          <div>
-            <p class="delete_message">アカウントを削除する</p>
-            <span>※この操作は取り消せません</span>
-          </div>  
-          <div class="account_delete_button">
-            <p><%= button_to "削除する", registration_path(resource_name), data: { confirm: "この操作は取り消せません！本当によろしいですか?", turbo_confirm: "この操作は取り消せません！本当によろしいですか?" }, method: :delete, class: "button is-danger" %></p>
-          </div>
+          <% end %>
         </div>
       </div>
     </div>

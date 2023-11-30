@@ -1,20 +1,27 @@
-<secction>
-  <div class="account">
-    <h1>アカウント</h1>
-  </div>
-</secction>
+<section>
+  <div class="section">
+    <div class="container">
+      <div class="option_flame is-centered">
+        <div class="option_content">
+          <p class="title section">設定</p>
+          <p><%= link_to "プロフィールページ", current_user, class: "button is-link" %></p>
+          <p><%= link_to "アカウントを編集する", edit_user_registration_path, class: "button is-warning" %></p>
+        </div>
 
-<secction>
-  <div class="user_container">
-    <div class="account_show">
-      <div class="account_details">
-        <p>メールアドレス</p>
-        <span><%= current_user.email %></span>
-        <p>パスワード</p>
-        <span>*********</span>
-        <div class="account_buttons">
-          <p><%= link_to "プロフィール", current_user, class: "button is-primary"%></p>
-          <p><%= link_to "編集", edit_user_registration_path, class: "button is-primary"%></p>
+        <div class="option_content">
+          <div class="title section under_line">
+            <h2>アカウント</h2>
+          </div>
+                
+          <div class="field select_image">
+            <p class="label">メールアドレス</p>
+            <p><%= current_user.email %></p>
+          </div>
+
+          <div class="field select_image">
+            <p class="label">パスワード</p>
+            <p>*********</p>
+          </div>
         </div>
       </div>
     </div>

@@ -1,39 +1,51 @@
-<secction>
-  <div class="account">
-    <h1>施設編集ページ</h1>
+<section>
+  <div class="section">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-6">
+          <div class="wrapper">
+            <%= form_for @room do |f|%>
+              <div class="title section columns is-centered">
+                <h2>施設情報の編集</h2>
+              </div>
+
+              <div class="field">
+                <%= f.label :施設名, class: "label" %>
+                <%= f.text_field :room_name, class: "input", placeholder: "ルーム名を入力" %>
+              </div>
+
+              <div class="field">
+                <%= f.label :施設紹介, class: "label"%>
+                <%= f.text_area :room_details, class: "input", placeholder: "施設紹介を入力" %>
+              </div>
+
+              <div class="field">
+                <%= f.label :宿泊料金, class: "label" %>
+                <%= f.text_field :price, class: "input", placeholder: "1日あたりの料金を入力" %>
+              </div>
+
+              <div class="field">
+                <%= f.label :住所, class: "label" %>
+                <%= f.text_field :place, class: "input", placeholder: "住所を入力" %>
+              </div>
+
+              <div class="field">
+                <%= f.label :施設画像, class: "label" %>
+                <label class="file_upload"><%= f.file_field :profile_image %>画像をアップロード</label>
+              </div>
+              
+              <div class="actions">
+                <%= f.submit "保存", class: "button is-success" %>
+              </div>
+              
+              <div class="actions">
+              <%= link_to "キャンセル", :back, class: "button" %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-</secction>
-
-<div class="room_container">
-  <div class="columns is-centered">
-    <%= form_for @room do |f|%>
-      <div class="field">
-        <%= f.label :施設名, class: "label" %>
-        <%= f.text_field :room_name, class: "input" %>
-      </div>
-
-      <div class="field">
-        <%= f.label :施設紹介, class: "label"%>
-        <%= f.text_area :room_details, class: "input" %>
-      </div>
-
-      <div class="field">
-        <%= f.label :施設画像, class: "label" %>
-        <%= f.file_field :image, class: "input" %>
-      </div>
-
-      <div class="field">
-        <%= f.label :宿泊料金, class: "label" %>
-        <%= f.text_field :price, class: "input" %>
-      </div>
-
-      <div class="field">
-        <%= f.label :住所, class: "label" %>
-        <%= f.text_field :place, class: "input" %>
-      </div>
-
-      <%= f.submit "施設情報を更新する", class: "button is-success" %>
-    <% end %>
-  </div>
-</div>
+</section>
 
