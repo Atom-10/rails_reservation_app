@@ -39,10 +39,10 @@
             <ul class="dropdown-menu">
               <li><%= link_to "プロフィール", current_user, class: "dropdown-item" %></li>
               <li><%= link_to "アカウント", account_path, class: "dropdown-item" %></li>
+              <li><%= link_to "登録施設一覧", user_room_path, class: "dropdown-item" %></li>
               <li><%= link_to "施設を登録する", new_room_path, class: "dropdown-item" %></li>
               <li><%= link_to "予約一覧", account_path, class: "dropdown-item" %></li>
               <li><%= link_to "ログアウト", destroy_user_session_path, class: "dropdown-item", method: :delete, data: {confirm: "ログアウトしてもよろしいですか？"} %></li>
-              
             </ul>
           </div>
         <% else %>

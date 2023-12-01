@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   resources :rooms
   get "/account" => "users#account"
   get "user/account" => "devise/passwords#edit"
+  get "/user_room" => "rooms#user_room"
 end

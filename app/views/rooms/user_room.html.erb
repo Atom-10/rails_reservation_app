@@ -1,0 +1,55 @@
+<section>
+  <div class="section">
+    <div class="title section columns is-centered under_line">
+      <h2>登録施設一覧</h2>
+    </div>
+    
+    <div class="section">
+      <div class="room_container">
+        <% @user.each do |room| %>
+          <% if room.user.id == current_user.id %>
+            <div class="room_content">
+              <div class="room_image under_line">
+                <div class="field">
+                  <%= attachment_image_tag @room, :image, fallback: "no-image.png" %>
+                </div>
+              </div>
+
+              <div class="edit_section">
+                <div class="field room_name">
+                  <%= room.room_name %>
+                </div>
+
+                <div class="field option_flame">
+                  <%= room.place %>
+                </div>
+
+                <div class="field room_details">
+                  <%= room.room_details %>
+                </div>
+
+                <div class="field room_show">
+                  <div class="room_price">
+                    <span>¥<%= room.price %>~</span>
+                  </div>
+
+                  <div class="user_room_edit">
+                    <%= link_to "登録情報", room, class: "button is-success" %>
+                    <%= link_to "編集", edit_room_path(room), class: "button is-success" %>
+                  </div>
+                </div>
+                <span>作成日<%= room.created_at.strftime("%Y/%m/%d")%></span>
+
+              </div>
+              # 確認用！
+              <div class="field">
+                <%= current_user.username %>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      <div>
+    </div>
+  </div>
+</section>
+

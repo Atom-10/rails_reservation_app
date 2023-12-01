@@ -28,6 +28,11 @@ class RoomsController < ApplicationController
     redirect_to room_path(@room)
   end
 
+  def user_room
+    @users = User.all
+    @user = Room.all
+  end
+
   private
   def room_params
     params.require(:room).permit(:room_name, :room_details, :image, :price, :place)
