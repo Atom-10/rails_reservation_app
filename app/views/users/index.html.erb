@@ -1,21 +1,34 @@
-<secction>
-  <div class="account">
-    <h1>登録ユーザー一覧</h1>
-  </div>
-</secction>
 
-<secction>
-  <% @users.each do |user| %>
-    <div class="account_content">
-      <div class="account_image">
-        <%= attachment_image_tag user, :profile_image, fallback: "no-image.png"%>
-      </div>
-      <div class="account_name">
-        <p><%= user.username %></p>
-      </div>
-      <div>
-        <%= link_to "プロフィール", user_path(user)%>
+<strong>テストページ</strong>
+<strong>このページは削除！</strong>
+
+<section>
+  <div class="section">
+    <div class="title section columns is-centered under_line">
+      <h2>登録ユーザー一覧</h2>
+    </div>
+    
+    <div class=" section">
+      <div class="room_container">
+        <% @users.each do |user| %>
+          <div class="room_content">
+            <div class="room_image under_line">
+              <div class="field">
+                <%= attachment_image_tag user, :profile_image, class: "room_image", fallback: "no-image.png"%>
+              </div>
+            </div>
+            <div class="section">
+              <div class="field room_name">
+                <%= user.username %>
+              </div>
+
+              <div>
+                <%= link_to "プロフィールを見る", user_path(user), class: "button is-success"%>
+              </div>
+            </div>
+          </div>
+        <% end %>
       </div>
     </div>
-  <% end %>
-</secction>
+  </div>
+</section>

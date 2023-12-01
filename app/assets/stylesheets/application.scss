@@ -127,11 +127,6 @@ p {
   border-bottom: solid rgb(137, 137, 137);
 }
 
-.room_flame {
-  border-radius: 15px;
-  z-index: 10;
-}
-
 .room_container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -150,6 +145,10 @@ p {
   align-items: center;
 }
 
+.room_name {
+  font-size: 24px;
+}
+
 .room_details {
   height: 100px;
   overflow: hidden;
@@ -159,10 +158,6 @@ p {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.room_name {
-  font-size: 24px;
 }
 
 .room_price {
