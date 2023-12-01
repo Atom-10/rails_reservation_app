@@ -33,7 +33,7 @@
 
             <div class="field room_show">
               <div class="room_price">
-                <span>¥<%= @room.price %>~</span>
+                <%= number_to_currency(@room.price.to_s(:delimited), precision: 0, unit: "¥", format: "%u %n ~" ) %>
               </div>
               
               <div class="select_image">
@@ -81,7 +81,7 @@
 
                 <div class="field room_show">
                   <div class="room_price">
-                    <span>¥<%= @room.price %>~</span>
+                    <%= number_to_currency(@room.price.to_s(:delimited), precision: 0, unit: "¥", format: "%u %n ~" ) %>
                   </div>
                   
                   <div class="select_image">
@@ -129,7 +129,7 @@
 
                 <div class="field room_show">
                   <div class="room_price">
-                    <span>¥<%= @room.price %>~</span>
+                    <%= number_to_currency(@room.price.to_s(:delimited), precision: 0, unit: "¥", format: "%u %n ~" ) %>
                   </div>
                   
                   <div class="select_image">
