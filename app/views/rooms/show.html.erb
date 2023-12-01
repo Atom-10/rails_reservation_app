@@ -2,31 +2,44 @@
   <% if current_user == nil %>
     <div class="section">
       <div class="container">
-        <div class="columns is-centered">
-          <div class="column is-6">
-            <div class="title section columns is-centered under_line">
+        <div class="option_flame is-centered">
+        
+          <div class="option_content">
+            <p class="title section">予約</p>
+            <p>予約エリア</p>
+            <p><%= link_to "ログイン", new_user_session_path, class: "button is-success" %></p>
+          </div>
+
+          <div class="option_content">
+            <div class="title section under_line">
               <h2>施設詳細</h2>
             </div>
-            <div class="field select_image">
-              <%= attachment_image_tag @room, :image, fallback: "no-image.png", class: "image" %>
-            </div>
 
-            <div class="field select_image  under_line">
+            <div class="field">
+              <%= attachment_image_tag @room, :image, fallback: "no-image.png" %>
+            </div>
+            
+            <div class="field room_name">
               <%= @room.room_name %>
             </div>
 
             <div class="field">
-              <%= @room.price %>
+              <%= @room.place %>
             </div>
 
-            <div class="field">
-              <%= @room.price %>
-            </div>
-
-            <div class="field">
+            <div class="field room_details">
               <%= @room.room_details %>
             </div>
-            <%= link_to "施設一覧", rooms_path, class: "button is-success" %>
+
+            <div class="field room_show">
+              <div class="room_price">
+                <span>¥<%= @room.price %>~</span>
+              </div>
+              
+              <div class="select_image">
+                <%= link_to "戻る", rooms_path, class: "button" %>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -37,36 +50,46 @@
     <% if @room.user.id != current_user.id %>
       <div class="section">
         <div class="container">
-          <div class="option_content">
-            <div class="columns is-centered">
-              <div class="column is-6">
+          <div class="option_flame is-centered">
+            <% if @room.user.id != current_user.id %>
+              <div class="option_content">
+                <p class="title section">予約</p>
+                <p>予約エリア</p>
+                <p>予約するボタン</p>
+              </div>
+
+              <div class="option_content">
                 <div class="title section under_line">
                   <h2>施設詳細</h2>
                 </div>
-                
-                <div class="field select_image">
-                  <%= attachment_image_tag @room, :image, fallback: "no-image.png", class: "image" %>
-                </div>
 
-                <div class="field select_image  under_line">
+                <div class="field">
+                  <%= attachment_image_tag @room, :image, fallback: "no-image.png" %>
+                </div>
+                
+                <div class="field room_name">
                   <%= @room.room_name %>
                 </div>
 
                 <div class="field">
-                  <%= @room.price %>
+                  <%= @room.place %>
                 </div>
 
-                <div class="field">
-                  <%= @room.price %>
-                </div>
-
-                <div class="field">
+                <div class="field room_details">
                   <%= @room.room_details %>
                 </div>
 
-                <%= link_to "施設一覧", rooms_path, class: "button is-success" %>
+                <div class="field room_show">
+                  <div class="room_price">
+                    <span>¥<%= @room.price %>~</span>
+                  </div>
+                  
+                  <div class="select_image">
+                    <%= link_to "戻る", rooms_path, class: "button" %>
+                  </div>
+                </div>
               </div>
-            </div>
+            <% end %>
           </div>
         </div>
       </div>
@@ -76,41 +99,46 @@
       <div class="section">
         <div class="container">
           <div class="option_flame is-centered">
-          <% if @room.user.id == current_user.id %>
+            <% if @room.user.id == current_user.id %>
               <div class="option_content">
-                <p class="title section">設定</p>
+                <p class="title section">予約</p>
+                <p>予約エリア</p>
+                <p>予約するボタン</p>
               </div>
-              
+
               <div class="option_content">
                 <div class="title section under_line">
                   <h2>施設詳細</h2>
                 </div>
-                      
-                <div class="field select_image">
-                  <%= attachment_image_tag @room, :image, fallback: "no-image.png", class: "image" %>
-                </div>
 
-                <div class="field select_image  under_line">
+                <div class="field">
+                  <%= attachment_image_tag @room, :image, fallback: "no-image.png" %>
+                </div>
+                
+                <div class="field room_name">
                   <%= @room.room_name %>
                 </div>
 
                 <div class="field">
-                  <%= @room.price %>
+                  <%= @room.place %>
                 </div>
 
-                <div class="field">
-                  <%= @room.price %>
-                </div>
-
-                <div class="field">
+                <div class="field room_details">
                   <%= @room.room_details %>
                 </div>
 
-                <%= link_to "施設一覧", rooms_path, class: "button is-success" %>
-                <%= link_to "編集", edit_room_path(@room), class: "button is-success" %>
+                <div class="field room_show">
+                  <div class="room_price">
+                    <span>¥<%= @room.price %>~</span>
+                  </div>
+                  
+                  <div class="select_image">
+                    <%= link_to "編集", edit_room_path(@room), class: "button is-success" %>
+                    <%= link_to "戻る", rooms_path, class: "button" %>
+                  </div>
+                </div>
+              </div>
             <% end %>
-                
-
           </div>
         </div>
       </div>
