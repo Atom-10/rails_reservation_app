@@ -6,9 +6,9 @@
     
     <div class=" section">
       <div class="room_container">
-        <% @rooms.each do |room|  %>
-          <div class="room_content room_flame">
-            <div class="room_image  under_line">
+        <% @rooms.each do |room| %>
+          <div class="room_content">
+            <div class="room_image under_line">
               <div class="field">
                 <%= attachment_image_tag room, :image, fallback: "no-image.png" %>
               </div>
