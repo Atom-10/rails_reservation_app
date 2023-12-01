@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: "home#index"
   resources :users
   resources :rooms
+  resources :reservations
   get "/account" => "users#account"
   get "user/account" => "devise/passwords#edit"
   get "/user_room" => "rooms#user_room"
