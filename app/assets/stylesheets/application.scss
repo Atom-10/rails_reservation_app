@@ -100,6 +100,10 @@ input[type="file"] {
   width: 100%;
 }
 
+.room_section {
+  margin: 20px 40px 0 40px;
+}
+
 .select_image {
   display: flex;
   align-items: center;
@@ -150,7 +154,7 @@ p {
 }
 
 .room_details {
-  height: 100px;
+  height: 75px;
   overflow: hidden;
 }
 
