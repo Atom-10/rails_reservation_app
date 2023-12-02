@@ -1,15 +1,67 @@
-<h1>Reservations#new</h1>
-<p>Find me in app/views/reservations/new.html.erb</p>
+<section>
+  <% if current_user == nil %>
+    <div class="section">
+      <div class="container">
+        <div class="columns is-centered">
+          <div class="column is-6">
+            <%= form_for @reservation do |f| %>
+              <div class="wrapper">
+                <div class="field">
+                  <%= f.label :チェックイン %>
+                  <%= f.date_field :check_in %>
+                </div>
+    
+                <div class="field">
+                  <%= f.label :チェックアウト %>
+                  <%= f.date_field :check_in %>
+                </div>
 
-<%= form_for @reservation do |f| %>
-  <%= f.label :チェックイン %>
-  <%= f.date_field :check_in %>
+                <div class="field">
+                  <%= f.label :利用人数 %>
+                  <%= f.text_field :guest %>
+                </div>
+                
+                <div class="actions">
+                  <%= link_to "ログイン", new_user_session_path, class: "button is-success" %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
 
-  <%= f.label :チェックアウト %>
-  <%= f.date_field :check_in %>
+  <% else %>
 
-  <%= f.label :利用人数 %>
-  <%= f.text_field :guest %>
+    <div class="section">
+      <div class="container">
+        <div class="columns is-centered">
+          <div class="column is-6">
+            <%= form_for @reservation do |f| %>
+              <div class="wrapper">
+                <div class="field">
+                  <%= f.label :チェックイン %>
+                  <%= f.date_field :check_in %>
+                </div>
+          
+                <div class="field">
+                  <%= f.label :チェックアウト %>
+                  <%= f.date_field :check_out %>
+                </div>
 
-  <%= f.submit "予約する" %>
-<% end %>
+                <div class="field">
+                  <%= f.label :利用人数 %>
+                  <%= f.text_field :guest %>
+                </div>
+                      
+                <div class="actions">
+                  <%= f.submit "予約する", class: "button" %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</section>
