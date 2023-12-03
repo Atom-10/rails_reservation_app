@@ -179,6 +179,19 @@ p {
   gap: 3px;
 }
 
+.reservation_flame {
+  width: 100%;
+}
+
+.reservation_content {
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  margin: 20px 0;
+}
+
 // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 // .login_username {
