@@ -1,5 +1,5 @@
 class Room < ApplicationRecord
   belongs_to :user
   attachment :image
-  belongs_to :reservation
+  has_many :reservations, dependent: :destroy
 end
