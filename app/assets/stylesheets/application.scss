@@ -50,6 +50,10 @@ input[type="file"] {
   box-shadow: 0 0 15px gray;
 }
 
+.half {
+  width: 50%;
+}
+
 .nav_header {
   padding: 20px;
   background-color: navy;
@@ -192,239 +196,16 @@ p {
   margin: 20px 0;
 }
 
+.reservation_container {
+  margin-right: 60px;
+}
+
+.reservation_index_flame {
+  // ここから再開
+}
+
+.reservation_flame {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
 // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-// .login_username {
-//   display: flex;
-//   align-items: center;
-// }
-
-// .content_wrapper {
-//   text-align: center;
-//   font-size: 30px;
-//   color: white;
-//   margin-bottom: 15px;
-//   padding: 12px;
-//   background-color: rgb(31, 31, 192);
-// }
-
-// .name {
-//   font-size: 30px;
-// }
-
-// .login_user {
-//   width: 120px;
-//   color: white;
-// }
-
-// .login_icon {
-//   border-radius: 50%;
-// }
-
-// .dropdown-menu {
-//   min-width: 100px;
-// }
-
-// .content_wrapper {
-//   margin-top: 40px;
-//   padding-top: 10px;
-//   background-color: #f0f0f0;
-// }
-
-// .user_list {
-//   text-align: center;
-// }
-
-// .profile_page {
-//   display: flex;
-//   justify-content: center;
-// }
-
-// .user_image {
-//   width: 300px;
-// }
-
-// .introduction {
-//   width: 400px;
-//   margin: 0 auto;
-//   padding: 10px;
-// }
-
-// .user_image {
-//   margin-right: 30px;
-//   width: 140px;
-//   display: flex;
-//   justify-content: center;
-// }
-
-// .account_name {
-//   margin-right: 30px;
-//   font-size: 24px;
-//   color: gray;
-// }
-
-// .user_container,
-// .room_container {
-//   margin: 15px 0;
-//   padding: 30px 0;
-//   background-color: #f0f0f0;
-// }
-
-// .user_content {
-//   display: flex;
-//   justify-content: center;
-//   margin-bottom: 30px;
-// }
-
-// .user_image {
-//   width: 300px;
-// }
-
-// .user_info {
-//   margin-left: 30px;
-// }
-
-// .user_details {
-//   margin-top: 40px;
-//   width: 300px;
-// }
-
-// .user_name,
-// .user_email {
-//   font-size: 30px;
-//   margin-bottom: 15px;
-// }
-
-// .user_introduction {
-//   width: 600px;
-//   margin: 0 auto;
-// }
-
-// .room_wrapper {
-//   margin-left: 30px;
-// }
-// .room_content {
-//   margin: 0 auto;
-//   width: 100%;
-//   display: flex;
-// }
-
-// .room_name {
-//   font-size: 30px;
-//   margin: 15px 0;
-// }
-
-// .room_details {
-//   height: 180px;
-// }
-
-// .rooms_container {
-//   display: flex;
-//   flex-wrap: wrap;
-//   gap: 50px;
-//   margin: 0 auto;
-//   padding: 0 50px;
-// }
-
-// .rooms_content {
-//   width: 400px;
-//   height: 500px;
-//   padding: 15px;
-//   background-color: #f0f0f0;
-// }
-
-// .image {
-//   margin: 0 auto;
-//   height: 200px;
-//   width: auto;
-// }
-
-// .rooms_details {
-//   margin-top: 20px;
-// }
-
-// .rooms_option {
-//   margin-top: 10px;
-// }
-
-// .room_container {
-//   display: grid;
-//   justify-content: center;
-// }
-
-// .room_price_place {
-//   font-size: 22px;
-// }
-
-// .room_buttons {
-//   display: flex;
-//   justify-content: space-between;
-//   align-items: center;
-// }
-
-// .details {
-//   margin: 30px 0;
-//   max-height: 300px;
-// }
-
-// .login_user a {
-//   color: inherit;
-// }
-
-// .account_delete {
-//   text-align: center;
-//   padding: 30px 0;
-//   margin-top: 30px;
-//   background-color: #f0f0f0;
-// }
-
-// .delete_message {
-//   font-size: 20px;
-// }
-
-// .account_delete span {
-//   color: red;
-// }
-
-// .account_delete_button {
-//   margin-top: 30px;
-// }
-
-// .update_buttons {
-//   display: flex;
-//   justify-content: space-between;
-// }
-
-// .account_show {
-//   display: flex;
-//   justify-content: center;
-// }
-
-// .account_details {
-//   font-size: 24px;
-//   margin: 10px 0;
-//   text-align: center;
-// }
-
-// .account_details p {
-//   margin: 10px 0;
-// }
-
-// .account_details span {
-//   font-size: 35px;
-// }
-
-// .account_buttons {
-//   display: flex;
-//   justify-content: space-between;
-// }
-
-// .profile_buttons {
-//   display: flex;
-//   justify-content: space-between;
-// }
-
-// .editor_buttons {
-//   display: flex;
-//   justify-content: space-between;
-// }
