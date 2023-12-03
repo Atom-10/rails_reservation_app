@@ -1,2 +1,40 @@
-<h1>Reservations#index</h1>
-<p>Find me in app/views/reservations/index.html.erb</p>
+<section>
+  <div class="section">
+    <div class="title section columns is-centered under_line">
+      <h2>予約一覧</h2>
+    </div>
+
+    <div class="section">
+      <div class="container">
+        <% @reservations.each do |reservation| %>
+          <div class="reservation_flame under_line">
+            <div class="reservation_content">
+              <div>
+                <div>チェックイン</div>
+                <div class="label"><%= reservation.check_in %></div>
+              </div>
+
+              <div>
+                <div>チェックアウト</div>
+                <div class="label"><%= reservation.check_out %></div>
+              </div>
+
+              <div>
+                <div>宿泊人数</div>
+                <div class="label"><%= reservation.guest %></div>
+              </div>
+          
+              <div>
+                <%= link_to "予約削除ボタン(仮)" %>
+              </div>
+
+              <div>
+                <%= link_to "予約施設詳細(仮)" %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>
