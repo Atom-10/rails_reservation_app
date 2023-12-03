@@ -29,8 +29,7 @@ class RoomsController < ApplicationController
   end
 
   def user_room
-    @users = User.all
-    @user = Room.all
+    @rooms = Room.all
   end
 
   private
