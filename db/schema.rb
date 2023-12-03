@@ -14,6 +14,7 @@ ActiveRecord::Schema.define(version: 2023_12_03_112017) do
 
   create_table "reservations", force: :cascade do |t|
     t.integer "user_id"
+    t.integer "room_id"
     t.integer "guest"
     t.date "check_in"
     t.date "check_out"
