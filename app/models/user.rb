@@ -5,5 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   attachment :profile_image
   has_many :rooms, dependent: :destroy
-  belongs_to :reservation
+  has_many :reservations, dependent: :destroy
 end
