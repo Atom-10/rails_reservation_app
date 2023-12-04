@@ -1,6 +1,7 @@
 class RoomsController < ApplicationController
   def index
-    @rooms = Room.all
+    @rooms = Room.search(params[:search])
+    @room = Room.search(params[:search]).count
   end
 
   def new
