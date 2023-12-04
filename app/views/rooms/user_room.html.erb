@@ -34,16 +34,10 @@
                   </div>
 
                   <div class="user_room_edit">
-                    <%= link_to "登録情報", room, class: "button is-success" %>
                     <%= link_to "編集", edit_room_path(room), class: "button is-success" %>
                   </div>
                 </div>
                 <span>作成日<%= room.created_at.strftime("%Y/%m/%d")%></span>
-
-              </div>
-              # 確認用！
-              <div class="field">
-                <%= current_user.username %>
               </div>
             </div>
           <% end %>

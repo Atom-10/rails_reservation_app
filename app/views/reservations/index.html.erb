@@ -4,23 +4,32 @@
       <h2>予約一覧</h2>
     </div>
 
-    <div class="section">
+    <div class="container">
+      <div class="reservation_index_flame under_line">
+        <div class="reservation_content">
+          <div class="label">チェックイン</div>
+          <div class="label">チェックアウト</div>
+          <div class="label">宿泊人数</div>
+          <div class="label">予約の削除</div>
+          <div class="label">予約の詳細</div>
+        </div>
+      </div>
+    </div>
+
+    <div>
       <div class="container">
         <% @reservations.each do |reservation| %>
           <div class="reservation_index_flame under_line">
             <div class="reservation_content">
               <div>
-                <div>チェックイン</div>
                 <div class="label"><%= reservation.check_in %></div>
               </div>
 
               <div>
-                <div>チェックアウト</div>
                 <div class="label"><%= reservation.check_out %></div>
               </div>
 
               <div>
-                <div>宿泊人数</div>
                 <div class="label"><%= reservation.guest %></div>
               </div>
           

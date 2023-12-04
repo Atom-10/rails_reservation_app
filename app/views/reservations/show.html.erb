@@ -20,12 +20,17 @@
 
             <div class="field">
               <p class="label">チェックイン</p>
-              <p><%= @reservation.check_in %></p>
+              <p><%= @reservation.check_in.strftime("%Y/%m/%d") %></p>
             </div>
 
             <div class="field">
               <p class="label">チェックアウト</p>
-              <p><%= @reservation.check_out %></p>
+              <p><%= @reservation.check_out.strftime("%Y/%m/%d") %></p>
+            </div>
+
+            <div class="field">
+              <p class="label">予約確定日</p>
+              <p><%= @reservation.created_at.strftime("%Y/%m/%d %H:%M") %></p>
             </div>
 
             <div class="field">
