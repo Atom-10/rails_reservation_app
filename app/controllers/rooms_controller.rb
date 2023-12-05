@@ -1,7 +1,14 @@
 class RoomsController < ApplicationController
   def index
-    @rooms = Room.search(params[:search])
-    @room = Room.search(params[:search]).count
+    if params[:area_search].present?
+      @rooms = Room.search_by_place(params[:area_search])
+    elsif params[:free_word_search].present?
+      @rooms = Room.search_by_name_or_details(params[:free_word_search])
+    else
+      @rooms = Room.all
+    end
+
+    @room_count = @rooms.count
   end
 
   def new

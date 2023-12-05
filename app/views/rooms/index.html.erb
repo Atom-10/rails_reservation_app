@@ -1,28 +1,29 @@
 <div class="search_container">
-  <div class="label">検索結果
-    <div class="search_sum">
-      <%= number_to_currency(@room.to_s, precision: 0, format: "%n  件 見つかりました" ) %>
+  <div class="room_search_area">
+    <div class="label">検索結果
+      <div class="search_sum">
+        <%= number_to_currency(@room_count.to_s, precision: 0, format: "%n  件 見つかりました" ) %>
+      </div>
     </div>
-  </div>
-  <div class="half">
-    <%= form_tag(rooms_path, :method => "get") do %>
-      <div class="search_form">
-        <%= text_field_tag :search, "", placeholder: "地域を入力" %>
-      </div>
-      <div>
-        <%= submit_tag "エリアを検索", :place => nil, class: "button" %>
-      </div>
-    <% end %>
-  </div>
-  <div class="half">
-    <%= form_tag(rooms_path, :method => "get") do %>
-      <div class="search_form">
-        <%= text_field_tag :search, "", placeholder: "フリーワード入力" %>
-      </div>
-      <div>
-        <%= submit_tag "施設を検索", :room_name => nil, :room_details => nil, class: "button" %>
-      </div>
-    <% end %>
+    <div class="room_search_area">
+      <%= form_tag(rooms_path, :method => "get") do %>
+        <div class="search_form double_search">
+          <%= text_field_tag :area_search, params[:area_search], placeholder: "地域を入力" %>
+        </div>
+        <div>
+          <%= submit_tag "エリアを検索", :place => nil, class: "button" %>
+        </div>
+      <% end %>
+
+      <%= form_tag(rooms_path, :method => "get") do %>
+        <div class="search_form double_search">
+          <%= text_field_tag :free_word_search, params[:free_word_search], placeholder: "フリーワード入力" %>
+        </div>
+        <div>
+          <%= submit_tag "施設を検索", :room_name => nil, :room_details => nil, class: "button" %>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
 
