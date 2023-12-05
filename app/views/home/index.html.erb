@@ -2,7 +2,7 @@
   <div class="half">
     <%= form_tag(rooms_path, :method => "get") do %>
       <div class="search_form">
-        <%= text_field_tag :search, "", placeholder: "地域を入力", required: true %>
+        <%= text_field_tag :search, "", placeholder: "地域を入力" %>
       </div>
       <div>
         <%= submit_tag "エリアを検索", :place => nil, class: "button" %>
