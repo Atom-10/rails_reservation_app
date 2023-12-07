@@ -12,13 +12,23 @@ class ReservationsController < ApplicationController
   end
 
   def create
+    @room = Room.find(params[:room_id])
     @reservation = Reservation.new(reservation_params)
-    @reservation.user_id = current_user.id
-    @reservation.save
-    redirect_to reservation_path(@reservation)
+    @reservation.user = current_user
+    @reservation.room = @room
+
+    if @reservation.save
+      redirect_to confirmation_reservation_path(@reservation)
+    else
+      render "rooms/show"
+    end
   end
 
   def edit
+  end
+
+  def confirmation
+    @reservation = Reservation.find(params[:id])
   end
 
   private
