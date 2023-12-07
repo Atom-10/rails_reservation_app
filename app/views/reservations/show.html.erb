@@ -15,7 +15,7 @@
 
           <div class="option_content">
             <div class="title section under_line">
-              <h2>施設詳細</h2>
+              <h2>予約確定画面</h2>
             </div>
 
             <div class="field">
@@ -32,6 +32,10 @@
               <p class="label">予約確定日</p>
               <p><%= @reservation.created_at.strftime("%Y/%m/%d %H:%M") %></p>
             </div>
+
+            <div class="label">合計金額: <%= number_to_currency(@reservation.room.price * @reservation.guest, precision: 0, unit: "¥", format: "%u %n") %></div>
+            <div class="label">宿泊日数: <%= (@reservation.check_out - @reservation.check_in).to_i %></div>
+
 
             <div class="field">
               <p class="label"> 宿泊人数</p>

@@ -24,7 +24,25 @@ class ReservationsController < ApplicationController
     end
   end
 
+  def update
+    @reservation = Reservation.find(params[:id])
+    if @reservation.update(reservation_params)
+      redirect_to reservation_path(@reservation), notice: "予約を変更しました"
+    else
+      render :edit
+    end
+  end
+  
+
   def edit
+    @reservation = Reservation.find(params[:id])
+  end
+
+  def destroy
+    @reservation = Reservation.find(params[:id])
+    @reservation.destroy
+    flash[:notice] = "予約を削除しました"
+    redirect_to reservations_path
   end
 
   private

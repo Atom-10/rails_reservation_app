@@ -10,6 +10,7 @@
           <div class="label">チェックイン</div>
           <div class="label">チェックアウト</div>
           <div class="label">宿泊人数</div>
+          <div class="label">施設画像</div>
           <div class="label">予約の削除</div>
           <div class="label">予約の詳細</div>
         </div>
@@ -32,13 +33,29 @@
               <div>
                 <div class="label"><%= reservation.guest %></div>
               </div>
-          
+
               <div>
-                <%= link_to "予約削除ボタン(仮)" %>
+              <div class="label"><%= reservation.room.room_name %></div>
               </div>
 
               <div>
-                <%= link_to "予約施設詳細(仮)" %>
+              <div><%= attachment_image_tag reservation.room, :image, fallback: "no-image.png" if reservation.room.present? %></div>
+              </div>
+
+              <div>
+                <div class="label">合計金額: <%= number_to_currency(reservation.room.price * reservation.guest, precision: 0, unit: "¥", format: "%u %n") %></div>
+              </div>
+          
+              <div>
+              <%= link_to "予約削除", reservation_path(reservation), method: :delete, data: { confirm: "本当に削除しますか？" }, class: "button is-danger" %>
+                
+              </div>
+
+              <div>
+                <%= link_to "予約詳細", reservation_path(reservation), class: "button is-info" %>
+              </div>
+              <div>
+              <%= link_to "予約編集", edit_reservation_path(reservation), class: "button is-warning" %>
               </div>
             </div>
           </div>
