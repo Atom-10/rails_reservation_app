@@ -18,17 +18,13 @@ class ReservationsController < ApplicationController
     @reservation.room = @room
 
     if @reservation.save
-      redirect_to confirmation_reservation_path(@reservation)
+    redirect_to reservation_path(@reservation), notice: "予約しました"
     else
       render "rooms/show"
     end
   end
 
   def edit
-  end
-
-  def confirmation
-    @reservation = Reservation.find(params[:id])
   end
 
   private
