@@ -91,10 +91,13 @@ input[type="file"] {
   width: 60px;
 }
 
+.delete_message a {
+  color: red;
+}
+
 .delete_message {
   text-align: center;
   margin: 30px 0;
-  color: red;
 }
 
 .option_flame {

@@ -37,6 +37,10 @@
               <div class="actions">
                 <%= link_to "キャンセル", account_path, class: "button" %>
               </div>
+              <div class="actions delete_message">
+                <div>アカウントの削除</div>
+                <%= link_to '削除する', user_path(@user), method: :delete, data: { confirm: 'この操作は取り消せません！本当に削除してもよろしいですか?' } %>
+              </div>
             </div>
           <% end %>
         </div>
