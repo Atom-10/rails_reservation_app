@@ -41,6 +41,12 @@ class RoomsController < ApplicationController
     @rooms = Room.all
   end
 
+  def confirm_reservation
+    @room = Room.find(params[:id])
+    @reservation = Reservation.new(session[:reservation_data])
+    render "reservations/confirmation"
+  end
+
   private
   def room_params
     params.require(:room).permit(:room_name, :room_details, :image, :price, :place)

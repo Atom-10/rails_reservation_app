@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   resources :rooms do
     resources :reservations, only: [:create]
   end
+  resources :rooms do
+    post 'confirm_reservation', on: :member
+  end
   resources :reservations do
     member do
       get "confirmation"

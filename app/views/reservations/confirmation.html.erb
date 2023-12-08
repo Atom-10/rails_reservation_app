@@ -1,1 +1,213 @@
-<h1>予約が確認！</h1>
+<section>
+  <% if current_user == nil %>
+    <div class="section">
+      <div class="container">
+        <div class="option_flame is-centered">
+        
+          <div class="option_content">
+            <p class="title section">予約確認</p>
+            <%= form_for [@room, @reservation], url: room_reservations_path(@room) do |f| %>
+              <div class="wrapper">
+                <div class="option_flame reservation_flame">
+                  <div class="field">
+                    <%= f.label :チェックイン, class: "label" %>
+                    <%= f.date_field :check_in %>
+                  </div>
+
+                  <div class="field">
+                    <%= f.label :チェックアウト, class: "label" %>
+                    <%= f.date_field :check_out %>
+                  </div>
+
+                  <div class="field">
+                    <%= f.label :利用人数, class: "label" %>
+                    <%= f.text_field :guest, :placeholder => "人数を入力" %>
+                  </div>
+                </div>
+
+                <div class="actions">
+                <%= link_to "ログイン", new_user_session_path, class: "button is-success" %>
+                </div>
+              </div>
+            <% end %>
+            <p></p>
+          </div>
+
+          <div class="option_content">
+            <div class="title section under_line">
+              <h2>施設詳細</h2>
+            </div>
+
+            <div class="field">
+              <%= attachment_image_tag @room, :image, fallback: "no-image.png" %>
+            </div>
+            
+            <div class="field room_name">
+              <%= @room.room_name %>
+            </div>
+
+            <div class="field">
+              <%= @room.place %>
+            </div>
+
+            <div class="field room_details">
+              <%= @room.room_details %>
+            </div>
+
+            <div class="field room_show">
+              <div class="room_price">
+                <%= number_to_currency(@room.price.to_s(:delimited), precision: 0, unit: "¥", format: "%u %n ~" ) %>
+              </div>
+              
+              <div class="select_image">
+                <%= link_to "戻る", :back, class: "button is-success" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <% else %>
+
+    <% if @room.user.id != current_user.id %>
+      <div class="section">
+        <div class="container">
+          <div class="option_flame is-centered">
+            <% if @room.user.id != current_user.id %>
+              <div class="option_content reservation_container">
+                <div class="title section">予約確認</div>
+                <%= form_for [@room, @reservation], url: room_reservations_path(@room) do |f| %>
+                  <div class="wrapper">
+                    <div class="option_flame reservation_flame">
+                      <div class="field">
+                        <%= f.label :チェックイン, class: "label" %>
+                        <%= f.date_field :check_in %>
+                      </div>
+
+                      <div class="field">
+                        <%= f.label :チェックアウト, class: "label" %>
+                        <%= f.date_field :check_out %>
+                      </div>
+
+                      <div class="field">
+                        <%= f.label :利用人数, class: "label" %>
+                        <%= f.text_field :guest, :placeholder => "人数を入力" %>
+                      </div>
+                    </div>
+                              
+                    <div class="actions">
+                      <%= f.submit "予約を確定する", class: "button is-success" %>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
+
+              <div class="option_content">
+                <div class="title section under_line">
+                  <h2>施設詳細</h2>
+                </div>
+
+                <div class="field">
+                  <%= attachment_image_tag @room, :image, fallback: "no-image.png" %>
+                </div>
+                
+                <div class="field room_name">
+                  <%= @room.room_name %>
+                </div>
+
+                <div class="field">
+                  <%= @room.place %>
+                </div>
+
+                <div class="field room_details">
+                  <%= @room.room_details %>
+                </div>
+
+                <div class="field room_show">
+                  <div class="room_price">
+                    <%= number_to_currency(@room.price.to_s(:delimited), precision: 0, unit: "¥", format: "%u %n ~" ) %>
+                  </div>
+                  
+                  <div class="select_image">
+                    <%= link_to "戻る", :back, class: "button is-success" %>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+    <% else %>
+
+      <div class="section">
+        <div class="container">
+          <div class="option_flame is-centered">
+            <% if @room.user.id == current_user.id %>
+              <div class="option_content reservation_container">
+                <div class="title section">予約確認</div>
+                <%= form_for [@room, @reservation], url: room_reservations_path(@room) do |f| %>
+                  <div class="wrapper">
+                    <div class="option_flame reservation_flame">
+                      <div class="field">
+                        <%= f.label :チェックイン, class: "label" %>
+                        <%= f.date_field :check_in %>
+                      </div>
+
+                      <div class="field">
+                        <%= f.label :チェックアウト, class: "label" %>
+                        <%= f.date_field :check_out %>
+                      </div>
+
+                      <div class="field">
+                        <%= f.label :利用人数, class: "label" %>
+                        <%= f.text_field :guest, :placeholder => "人数を入力" %>
+                      </div>
+                    </div>
+                              
+                    <div class="actions">
+                      <%= f.submit "予約を確定する", class: "button is-success" %>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
+
+              <div class="option_content">
+                <div class="title section under_line">
+                  <h2>施設詳細</h2>
+                </div>
+
+                <div class="field">
+                  <%= attachment_image_tag @room, :image, fallback: "no-image.png" %>
+                </div>
+                
+                <div class="field room_name">
+                  <%= @room.room_name %>
+                </div>
+
+                <div class="field">
+                  <%= @room.place %>
+                </div>
+
+                <div class="field room_details">
+                  <%= @room.room_details %>
+                </div>
+
+                <div class="field room_show">
+                  <div class="room_price">
+                    <%= number_to_currency(@room.price.to_s(:delimited), precision: 0, unit: "¥", format: "%u %n ~" ) %>
+                  </div>
+                  
+                  <div class="select_image">
+                    <%= link_to "戻る", :back, class: "button is-success" %>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</section>

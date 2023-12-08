@@ -6,7 +6,7 @@
         
           <div class="option_content">
             <p class="title section">予約</p>
-            <%= form_for [@room, @reservation], url: room_reservations_path(@room) do |f| %>
+            <%= form_for [@room, @reservation], url: confirm_reservation_room_path(@room), method: :post, id: 'reservation-form' do |f| %>
               <div class="wrapper">
                 <div class="option_flame reservation_flame">
                   <div class="field">
@@ -77,7 +77,7 @@
             <% if @room.user.id != current_user.id %>
               <div class="option_content reservation_container">
                 <div class="title section">予約</div>
-                <%= form_for [@room, @reservation], url: room_reservations_path(@room) do |f| %>
+                <%= form_for [@room, @reservation], url: confirm_reservation_room_path(@room), method: :post, id: 'reservation-form' do |f| %>
                   <div class="wrapper">
                     <div class="option_flame reservation_flame">
                       <div class="field">
@@ -147,7 +147,7 @@
             <% if @room.user.id == current_user.id %>
               <div class="option_content reservation_container">
                 <div class="title section">予約</div>
-                <%= form_for [@room, @reservation], url: room_reservations_path(@room) do |f| %>
+                <%= form_for [@room, @reservation], url: confirm_reservation_room_path(@room), method: :post, id: 'reservation-form' do |f| %>
                   <div class="wrapper">
                     <div class="option_flame reservation_flame">
                       <div class="field">
