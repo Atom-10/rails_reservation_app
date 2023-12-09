@@ -1,47 +1,59 @@
-<h1>Reservations#show</h1>
-<p>Find me in app/views/reservations/show.html.erb</p>
-<%= link_to "test"%>
-<%= current_user.username %>
-
 <section>
   <div class="section">
+    <div class="title section columns is-centered under_line">
+      <h2>予約情報</h2>
+    </div>
+
     <div class="container">
-      <div class="option_flame is-centered">
-          <div class="option_content">
-            <p class="title section">予約</p>
-            <p>予約エリア</p>
-            <p>予約するボタン</p>
+      <div class="reservation_index_flame">
+        <div class="reservation_content">
+          <div class="reservation_index_items font_weight">施設名</div>
+          <div class="reservation_index_items font_weight">施設画像</div>
+          <div class="reservation_index_items font_weight">チェックイン</div>
+          <div class="reservation_index_items font_weight">チェックアウト</div>
+          <div class="reservation_index_items font_weight">宿泊人数</div>
+          <div class="reservation_index_items font_weight">宿泊日数</div>
+          <div class="reservation_index_items font_weight">合計金額</div>
+          <div class="reservation_index_items font_weight">予約確定日</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="reservation_index_flame">
+        <div class="reservation_content">
+          <div class="reservation_index_items">
+            <%= @reservation.room.room_name %>
           </div>
 
-          <div class="option_content">
-            <div class="title section under_line">
-              <h2>予約確定画面</h2>
-            </div>
-
-            <div class="field">
-              <p class="label">チェックイン</p>
-              <p><%= @reservation.check_in.strftime("%Y/%m/%d") %></p>
-            </div>
-
-            <div class="field">
-              <p class="label">チェックアウト</p>
-              <p><%= @reservation.check_out.strftime("%Y/%m/%d") %></p>
-            </div>
-
-            <div class="field">
-              <p class="label">予約確定日</p>
-              <p><%= @reservation.created_at.strftime("%Y/%m/%d %H:%M") %></p>
-            </div>
-
-            <div class="label">合計金額: <%= number_to_currency(@reservation.room.price * @reservation.guest, precision: 0, unit: "¥", format: "%u %n") %></div>
-            <div class="label">宿泊日数: <%= (@reservation.check_out - @reservation.check_in).to_i %></div>
-
-
-            <div class="field">
-              <p class="label"> 宿泊人数</p>
-              <p><%= @reservation.guest %></p>
-            </div>
+          <div class="reservation_index_items">
+            <%= attachment_image_tag @reservation.room, :image, fallback: "no-image.png" if @reservation.room.present? %>
           </div>
+
+          <div class="reservation_index_items">
+            <%= @reservation.check_in.strftime("%Y/%m/%d") %>
+          </div>
+
+          <div class="reservation_index_items">
+            <%= @reservation.check_out.strftime("%Y/%m/%d") %>
+          </div>
+
+          <div class="reservation_index_items">
+            <%= number_to_currency(@reservation.guest, precision: 0, unit: "名", format: "%n %u") %>
+          </div>
+
+          <div class="reservation_index_items">
+            <%= number_to_currency((@reservation.check_out - @reservation.check_in).to_i, precision: 0, unit: "泊", format: "%n %u" ) %>
+          </div>
+
+          <div class="reservation_index_items">
+            <%= number_to_currency(@reservation.room.price * @reservation.guest * (@reservation.check_out - @reservation.check_in).to_i, precision: 0, unit: "¥", format: "%u %n ~") %>
+          </div>
+
+          <div class="reservation_index_items">
+            <%= @reservation.created_at.strftime("%Y/%m/%d %H:%M") %>
+          </div>
+        </div>
       </div>
     </div>
   </div>

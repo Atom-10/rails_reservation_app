@@ -7,12 +7,15 @@
     <div class="container">
       <div class="reservation_index_flame under_line">
         <div class="reservation_content">
-          <div class="label">チェックイン</div>
-          <div class="label">チェックアウト</div>
-          <div class="label">宿泊人数</div>
-          <div class="label">施設画像</div>
-          <div class="label">予約の削除</div>
-          <div class="label">予約の詳細</div>
+          <div class="reservation_index_items font_weight">施設名</div>
+          <div class="reservation_index_items font_weight">施設画像</div>
+          <div class="reservation_index_items font_weight">チェックイン</div>
+          <div class="reservation_index_items font_weight">チェックアウト</div>
+          <div class="reservation_index_items font_weight">宿泊人数</div>
+          <div class="reservation_index_items font_weight">合計金額</div>
+          <div class="reservation_index_items font_weight">予約の詳細</div>
+          <div class="reservation_index_items font_weight">予約の変更</div>
+          <div class="reservation_index_items font_weight">予約の削除</div>
         </div>
       </div>
     </div>
@@ -20,42 +23,42 @@
     <div>
       <div class="container">
         <% @reservations.each do |reservation| %>
-          <div class="reservation_index_flame under_line">
+          <div class="reservation_index_flame">
             <div class="reservation_content">
-              <div>
-                <div class="label"><%= reservation.check_in %></div>
+              <div class="reservation_index_items">
+                <%= reservation.room.room_name %>
               </div>
 
-              <div>
-                <div class="label"><%= reservation.check_out %></div>
+              <div class="reservation_index_items">
+                <%= attachment_image_tag reservation.room, :image, fallback: "no-image.png" if reservation.room.present? %>
               </div>
 
-              <div>
-                <div class="label"><%= reservation.guest %></div>
+              <div class="reservation_index_items">
+                <%= reservation.check_in.strftime("%Y/%m/%d") %>
               </div>
 
-              <div>
-              <div class="label"><%= reservation.room.room_name %></div>
+              <div class="reservation_index_items">
+                <%= reservation.check_out.strftime("%Y/%m/%d") %>
               </div>
 
-              <div>
-              <div><%= attachment_image_tag reservation.room, :image, fallback: "no-image.png" if reservation.room.present? %></div>
+              <div class="reservation_index_items">
+                <%= number_to_currency(reservation.guest, precision: 0, unit: "名", format: "%n %u") %>
               </div>
 
-              <div>
-                <div class="label">合計金額: <%= number_to_currency(reservation.room.price * reservation.guest, precision: 0, unit: "¥", format: "%u %n") %></div>
-              </div>
-          
-              <div>
-              <%= link_to "予約削除", reservation_path(reservation), method: :delete, data: { confirm: "本当に削除しますか？" }, class: "button is-danger" %>
-                
+              <div class="reservation_index_items">
+                <%= number_to_currency(reservation.room.price * reservation.guest * (reservation.check_out - reservation.check_in).to_i, precision: 0, unit: "¥", format: "%u %n ~") %>
               </div>
 
-              <div>
+              <div class="reservation_index_items">
                 <%= link_to "予約詳細", reservation_path(reservation), class: "button is-info" %>
               </div>
-              <div>
-              <%= link_to "予約編集", edit_reservation_path(reservation), class: "button is-warning" %>
+
+              <div class="reservation_index_items">
+                <%= link_to "予約変更", edit_reservation_path(reservation), class: "button is-warning" %>
+              </div>
+
+              <div class="reservation_index_items">
+                <%= link_to "予約削除", reservation_path(reservation), method: :delete, data: { confirm: "本当に削除しますか？" }, class: "button is-danger" %>
               </div>
             </div>
           </div>
