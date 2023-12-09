@@ -1,33 +1,5 @@
 <section>
-  <% if current_user == nil %>
-    <div class="section">
-      <div class="container">
-        <div class="columns is-centered">
-          <div class="column is-6">
-            <div class="title section columns is-centered under_line">
-              <h2>プロフィール</h2>
-            </div>
-            <div class="field select_image">
-              <p class="label">プロフィール画像</p>
-              <p><%= attachment_image_tag @user, :profile_image, class: "select_image under_line", fallback: "no-image.png" %></p>
-            </div>
-
-            <div class="field select_image  under_line">
-              <p class="label">名前</p>
-              <p><%= @user.username %></p>
-            </div>
-
-            <div class="field introduction">
-              <p class="label">自己紹介</p>
-              <p><%= @user.profile%></p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  <% else %>
-
+  <% if current_user == nil? || @user.id != current_user.id %>
     <div class="section">
       <div class="container">
         <div class="option_content">
@@ -56,5 +28,39 @@
         </div>
       </div>
     </div>
+  
+  <% else %>
+
+      <div class="section">
+        <div class="container">
+          <div class="option_flame is-centered">
+            <div class="option_content">
+              <p class="title section">設定</p>
+              <p><%= link_to "アカウントページへ", account_path, class: "button is-link" %></p>
+              <p><%= link_to "プロフィールを編集する", edit_user_path, class: "button is-warning" %></p>
+            </div>
+
+            <div class="option_content">
+              <div class="title section under_line">
+                <h2>プロフィール</h2>
+              </div>
+              <div class="field select_image">
+                <p class="label">プロフィール画像</p>
+                <p><%= attachment_image_tag @user, :profile_image, class: "select_image under_line", fallback: "no-image.png" %></p>
+              </div>
+
+              <div class="field select_image  under_line">
+                <p class="label">名前</p>
+                <p><%= @user.username %></p>
+              </div>
+
+              <div class="field introduction">
+                <p class="label">自己紹介</p>
+                <p><%= @user.profile%></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
   <% end %>
 </section>

@@ -182,6 +182,16 @@ p {
   margin-bottom: 12px;
 }
 
+.reservation_show_flame {
+  display: flex;
+  gap: 60px;
+  margin: 50px 0;
+}
+
+.reservation_confirmation_button {
+  margin-right: 100px;
+}
+
 .user_room_edit {
   display: flex;
   gap: 3px;
