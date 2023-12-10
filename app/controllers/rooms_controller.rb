@@ -23,8 +23,13 @@ class RoomsController < ApplicationController
   def create
     @room = Room.new(room_params)
     @room.user_id = current_user.id
-    @room.save
-    redirect_to room_path(@room)
+    if @room.save
+      flash[:notice] = "施設を登録しました"
+      redirect_to user_room_path
+    else
+      flash[:alert] = "入力内容を確認してください"
+      render :new
+    end
   end
 
   def edit
@@ -33,8 +38,20 @@ class RoomsController < ApplicationController
 
   def update
     @room = Room.find(params[:id])
-    @room.update(room_params)
-    redirect_to room_path(@room)
+    if @room.update(room_params)
+      flash[:notice] = "施設情報を更新しました"
+      redirect_to user_room_path
+    else
+      flash[:alert] = "入力内容を確認してください。"
+      render :edit
+    end
+  end
+
+  def destroy
+    @room = Room.find(params[:id])
+    @room.destroy
+    flash[:notice] = "施設を削除しました"
+    redirect_to user_room_path
   end
 
   def user_room

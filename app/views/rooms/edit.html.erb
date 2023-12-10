@@ -10,22 +10,22 @@
               </div>
 
               <div class="field">
-                <%= f.label :施設名, class: "label" %>
+                <%= f.label :施設名, class: "font_weight" %><span class="required_mark">※入力必須</span>
                 <%= f.text_field :room_name, class: "input", placeholder: "ルーム名を入力" %>
               </div>
 
               <div class="field">
-                <%= f.label :施設紹介, class: "label"%>
+                <%= f.label :施設紹介, class: "font_weight" %><span class="required_mark">※入力必須</span>
                 <%= f.text_area :room_details, class: "input", placeholder: "施設紹介を入力" %>
               </div>
 
               <div class="field">
-                <%= f.label :宿泊料金, class: "label" %>
+                <%= f.label :宿泊料金, class: "font_weight" %><span class="required_mark">※入力必須</span>
                 <%= f.text_field :price, class: "input", placeholder: "1日あたりの料金を入力" %>
               </div>
 
               <div class="field">
-                <%= f.label :住所, class: "label" %>
+                <%= f.label :住所, class: "font_weight" %><span class="required_mark">※入力必須</span>
                 <%= f.text_field :place, class: "input", placeholder: "住所を入力" %>
               </div>
 
@@ -39,7 +39,12 @@
               </div>
               
               <div class="actions">
-              <%= link_to "キャンセル", :back, class: "button" %>
+                <%= link_to "キャンセル", :back, class: "button" %>
+              </div>
+
+              <div class="actions delete_message">
+                <div>施設の削除</div>
+                <%= link_to "削除する", room_path(@room), method: :delete, data: { confirm: 'この操作は取り消せません！本当に削除してもよろしいですか?' }  %>
               </div>
             <% end %>
           </div>

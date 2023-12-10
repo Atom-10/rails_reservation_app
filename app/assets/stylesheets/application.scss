@@ -298,3 +298,15 @@ p {
 .hidden {
   border: none;
 }
+
+.flash_message {
+  margin-bottom: 20px;
+  color: red;
+  text-align: center;
+}
+
+.required_mark {
+  margin: 0 10px;
+  font-size: 10px;
+  color: red;
+}

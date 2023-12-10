@@ -14,6 +14,5 @@ Rails.application.routes.draw do
     end
   end
   get "/account" => "users#account"
-  get "user/account" => "devise/passwords#edit"
   get "/user_room" => "rooms#user_room"
 end
