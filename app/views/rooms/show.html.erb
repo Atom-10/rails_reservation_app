@@ -84,17 +84,17 @@
                 <div class="reservation_form">
                   <div class="field">
                     <%= f.label :チェックイン, class: "font_weight" %>
-                    <%= f.date_field :check_in, required: true, min: Date.current %>
+                    <%= f.date_field :check_in, required: true, min: Date.current, id: "check-in-date" %>
                   </div>
 
                   <div class="field">
                     <%= f.label :チェックアウト, class: "font_weight" %>
-                    <%= f.date_field :check_out, required: true, min: Date.current %>
+                    <%= f.date_field :check_out, required: true, min: f.object.check_in || Date.current, id: "check-out-date" %>
                   </div>
 
                   <div class="field">
                     <%= f.label :利用人数, class: "font_weight" %>
-                    <%= f.text_field :guest, required: true, :placeholder => "人数を入力" %>
+                    <%= f.text_field :guest, required: true, min: 1, type: "number", placeholder: "人数を入力" %>
                   </div>
                 </div>
 
