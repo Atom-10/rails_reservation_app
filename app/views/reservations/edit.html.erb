@@ -10,17 +10,17 @@
               </div>
 
               <div class="field">
-                <%= f.label :チェックイン, class: "label" %>
+                <%= f.label :チェックイン, class: "font_weight" %><span class="required_mark">※入力必須</span>
                 <%= f.date_field :check_in, class: "input" %>
               </div>
 
               <div class="field">
-                <%= f.label :チェックアウト, class: "label"%>
+                <%= f.label :チェックアウト, class: "font_weight" %><span class="required_mark">チェクイン以降の日付を選択してください</span><span class="required_mark">※入力必須</span>
                 <%= f.date_field :check_out, class: "input" %>
               </div>
 
               <div class="field">
-                <%= f.label :宿泊人数, class: "label" %>
+                <%= f.label :宿泊人数, class: "font_weight" %><span class="required_mark">※入力必須</span>
                 <%= f.number_field :guest, class: "input", placeholder: "宿泊人数を入力" %>
               </div>
 

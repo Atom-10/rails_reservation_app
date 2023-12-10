@@ -97,7 +97,8 @@
                     <%= f.text_field :guest, required: true, :placeholder => "人数を入力" %>
                   </div>
                 </div>
-
+                <div class="required_mark validates_message">チェックアウトはチェクイン以降の日付を選択してください</div>
+                
                 <div class="actions section">
                   <%= f.submit "このホテルを予約する", class: "button is-success" %>
                 </div>
