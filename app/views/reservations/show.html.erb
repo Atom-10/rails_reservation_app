@@ -5,29 +5,24 @@
     </div>
 
     <div class="container">
-      <div class="reservation_index_flame">
-        <div class="reservation_content">
-          <div class="reservation_index_items font_weight">施設名</div>
-          <div class="reservation_index_items font_weight">施設画像</div>
-          <div class="reservation_index_items font_weight">チェックイン</div>
-          <div class="reservation_index_items font_weight">チェックアウト</div>
-          <div class="reservation_index_items font_weight">宿泊人数</div>
-          <div class="reservation_index_items font_weight">宿泊日数</div>
-          <div class="reservation_index_items font_weight">合計金額</div>
-          <div class="reservation_index_items font_weight">予約確定日</div>
-        </div>
+      <div class="reservation_content">
+        <div class="reservation_index_items font_weight">施設名</div>
+        <div class="reservation_index_items font_weight">チェックイン</div>
+        <div class="reservation_index_items font_weight">チェックアウト</div>
+        <div class="reservation_index_items font_weight">宿泊人数</div>
+        <div class="reservation_index_items font_weight">宿泊日数</div>
+        <div class="reservation_index_items font_weight">合計金額</div>
+        <div class="reservation_index_items font_weight">予約確定日</div>
+        <div class="reservation_index_items font_weight">予約の変更</div>
+        <div class="reservation_index_items font_weight">予約の削除</div>
       </div>
     </div>
 
     <div class="container">
-      <div class="reservation_index_flame">
+      <div>
         <div class="reservation_content">
           <div class="reservation_index_items">
             <%= @reservation.room.room_name %>
-          </div>
-
-          <div class="reservation_index_items">
-            <%= attachment_image_tag @reservation.room, :image, fallback: "no-image.png" if @reservation.room.present? %>
           </div>
 
           <div class="reservation_index_items">
@@ -52,6 +47,14 @@
 
           <div class="reservation_index_items">
             <%= @reservation.created_at.strftime("%Y/%m/%d %H:%M") %>
+          </div>
+
+          <div class="reservation_index_items">
+            <%= link_to "予約変更", edit_reservation_path(@reservation), class: "button is-warning" %>
+          </div>
+
+          <div class="reservation_index_items">
+            <%= link_to "予約削除", reservation_path(@reservation), method: :delete, data: { confirm: "本当に削除しますか？" }, class: "button is-danger" %>
           </div>
         </div>
       </div>

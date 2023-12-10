@@ -220,8 +220,10 @@ p {
 
 .reservation_index_items {
   display: grid;
-  grid-template-columns: 130px;
+  grid-template-columns: 150px;
   gap: 10px;
+  height: 150px;
+  align-items: center;
 }
 
 .reservation_flame {
@@ -313,4 +315,9 @@ p {
 
 .validates_message {
   text-align: center;
+}
+
+.reservation_index_details {
+  height: 100px;
+  overflow: hidden;
 }
