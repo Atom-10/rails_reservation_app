@@ -5,7 +5,7 @@
         <div class="option_content half">
           <%= form_for [@room, @reservation], url: room_reservations_path(@room) do |f| %>
             <div class="title section">予約確認フォーム</div>
-            <div class="reservation_show_flame">
+            <div class="reservation_show_flame" id="reservationForm">
               <div class="field">
                 <%= f.label :チェックイン, class: "label" %>
                 <%= f.date_field :check_in, value: session[:reservation_data]["check_in"], readonly: true, class: "hidden" %>
@@ -24,8 +24,8 @@
 
             <div class="reservation_show_flame">
               <div class="field">
-                <div class="font_weight">宿泊日数<%= number_to_currency((@reservation.check_out - @reservation.check_in).to_i, precision: 0, unit: "泊", format: "  %n %u") %></div>
-                
+                <div class="font_weight">宿泊日数</div>
+                <div><%= number_to_currency((@reservation.check_out - @reservation.check_in).to_i, precision: 0, unit: "泊", format: "  %n %u") %></div>
               </div>
             </div>
                 
@@ -47,7 +47,7 @@
 
             <div class="actions reservation_confirmation_button">
               <%= f.submit "この内容で予約する", data: { confirm: "予約を確定します。よろしいですか？" }, class: "button is-warning" %>
-              <%= link_to "やめる", :back, class: "button" %>
+              <%= link_to "やめる", :back, class: "button", data: { "turbolinks" => false } %>
             </div>
           <% end %>
         </div>

@@ -321,3 +321,11 @@ p {
 .double_search {
   width: 300px;
 }
+
+#reservationForm {
+  pointer-events: none;
+}
+
+#reservationForm * {
+  pointer-events: none;
+}
