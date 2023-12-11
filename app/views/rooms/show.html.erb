@@ -9,27 +9,9 @@
             </div>
             <%= form_for [@room, @reservation], url: confirm_reservation_room_path(@room), method: :post do |f| %>
               <div class="section">
-                <div class="reservation_form section">
-                  
-                  <div class="field">
-                    <%= f.label :チェックイン, class: "label" %>
-                    <%= f.date_field :check_in %>
-                  </div>
-
-                  <div class="field">
-                    <%= f.label :チェックアウト, class: "label" %>
-                    <%= f.date_field :check_out %>
-                  </div>
-
-                  <div class="field">
-                    <%= f.label :利用人数, class: "label" %>
-                    <%= f.text_field :guest, :placeholder => "人数を入力" %>
-                  </div>
-                  
-                </div>
-
-                <div class="actions">
-                  <%= link_to "ログイン", new_user_session_path, class: "button is-success" %>
+                <div class="section validates_message">予約にはユーザー登録が必要です</div>
+                <div class="actions section">
+                 <%= link_to "ログイン", new_user_session_path, class: "button is-success" %>
                 </div>
               </div>
             <% end %>
