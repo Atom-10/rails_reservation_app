@@ -46,7 +46,7 @@
             </div>
 
             <div class="actions reservation_confirmation_button">
-              <%= f.submit "この内容で予約する", class: "button is-warning" %>
+              <%= f.submit "この内容で予約する", data: { confirm: "予約を確定します。よろしいですか？" }, class: "button is-warning" %>
               <%= link_to "やめる", :back, class: "button" %>
             </div>
           <% end %>
