@@ -5,7 +5,7 @@
         <div class="option_flame is-centered">
           <div class="option_content">
             <p class="title section">メニュー</p>
-            <p><%= link_to "施設を探す", rooms_path, class: "button is-success" %></p>
+            <p><%= link_to "マイページへ", current_user, class: "button is-success" %></p>
             <p><%= link_to "登録者一覧へ戻る", users_path, class: "button" %></p>
           </div>
 
@@ -15,7 +15,7 @@
             </div>
             <div class="field select_image">
               <p class="label">プロフィール画像</p>
-              <p><%= attachment_image_tag @user, :profile_image, class: "select_image under_line", fallback: "no-image.png" %></p>
+              <p><%= attachment_image_tag @user, :profile_image, class: "select_image", fallback: "no-image.png" %></p>
             </div>
 
             <div class="field select_image  under_line">
