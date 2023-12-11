@@ -61,12 +61,13 @@ class RoomsController < ApplicationController
   def confirm_reservation
     @room = Room.find(params[:id])
     @reservation = Reservation.new(reservation_form_params)
+    @reservation.room_id = @room.id
     session[:reservation_data] = @reservation.attributes
     render "reservations/confirmation"
   end
 
   def reservation_form_params
-    params.require(:reservation).permit(:check_in, :check_out, :guest)
+    params.require(:reservation).permit(:check_in, :check_out, :guest, :room_id)
   end
 
   private
