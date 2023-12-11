@@ -50,7 +50,7 @@
           </div>
 
           <div class="reservation_index_items">
-            <%= link_to "予約変更", edit_reservation_path(@reservation), class: "button is-warning" %>
+            <%= link_to "予約変更", edit_reservation_path(@reservation), data: { "turbolinks" => false }, class: "button is-warning" %>
           </div>
 
           <div class="reservation_index_items">
