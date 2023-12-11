@@ -14,7 +14,7 @@
         <div class="reservation_index_items font_weight">合計金額</div>
         <div class="reservation_index_items font_weight">予約確定日</div>
         <div class="reservation_index_items font_weight">予約の変更</div>
-        <div class="reservation_index_items font_weight">予約の削除</div>
+        <div class="reservation_index_items font_weight">予約キャンセル</div>
       </div>
     </div>
 
@@ -50,11 +50,15 @@
           </div>
 
           <div class="reservation_index_items">
-            <%= link_to "予約変更", edit_reservation_path(@reservation), data: { "turbolinks" => false }, class: "button is-warning" %>
+            <%= link_to "変更する", edit_reservation_path(@reservation), data: { "turbolinks" => false } %>
           </div>
 
           <div class="reservation_index_items">
-            <%= link_to "予約削除", reservation_path(@reservation), method: :delete, data: { confirm: "本当に削除しますか？" }, class: "button is-danger" %>
+            <%= link_to "予約を取り消す", reservation_path(@reservation), method: :delete, data: { confirm: "本当に取り消しますか？" } %>
+          </div>
+
+          <div class="reservation_index_items">
+            <%= link_to "戻る", reservations_path %>
           </div>
         </div>
       </div>
